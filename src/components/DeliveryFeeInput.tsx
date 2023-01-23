@@ -37,24 +37,24 @@ const DeliveryFeeCalculator: React.FC = () => {
         if (cartValue >= 100) {
             fee = 0;
         }
-        setFee(fee);
+        setFee(Math.round(fee * 100) / 100);
     };
 
     return (
-        <div>
-            <label htmlFor="cart-value">Cart value (€):</label>
+        <div className='container'>
+            <label htmlFor="cart-value">Cart value:</label>
             <input
                 type="number"
                 id="cart-value"
-                placeholder="e.g. 12"
+                placeholder="in €"
                 onChange={(e) => setCartValue(Number(e.target.value))}
             />
             <br />
-            <label htmlFor="distance">Delivery distance (m):</label>
+            <label htmlFor="distance">Delivery distance:</label>
             <input
                 type="number"
                 id="distance"
-                placeholder='e.g. 1000'
+                placeholder='in meter'
                 onChange={(e) => setDistance(Number(e.target.value))}
             />
             <br />
@@ -70,11 +70,11 @@ const DeliveryFeeCalculator: React.FC = () => {
             <input
                 type="datetime-local"
                 id="order-time"
-                value={orderTime.toISOString().slice(0, -1)}
+                value={orderTime.toISOString().slice(0, -5)}
                 onChange={(e) => setOrderTime(new Date(e.target.value))}
             />
             <br />
-            <button onClick={calculateFee}>Calculate fee</button>
+            <button onClick={calculateFee}>Calculate delivery price</button>
             <p>Delivery fee: {fee} €</p>
         </div>
     );

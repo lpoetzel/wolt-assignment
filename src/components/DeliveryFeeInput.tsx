@@ -46,7 +46,7 @@ const DeliveryFeeCalculator: React.FC = () => {
             <input
                 type="number"
                 id="cart-value"
-                placeholder="input cart-value"
+                placeholder="e.g. 12"
                 onChange={(e) => setCartValue(Number(e.target.value))}
             />
             <br />
@@ -54,6 +54,7 @@ const DeliveryFeeCalculator: React.FC = () => {
             <input
                 type="number"
                 id="distance"
+                placeholder='e.g. 1000'
                 onChange={(e) => setDistance(Number(e.target.value))}
             />
             <br />
@@ -61,6 +62,7 @@ const DeliveryFeeCalculator: React.FC = () => {
             <input
                 type="number"
                 id="num-items"
+                placeholder='e.g. 3'
                 onChange={(e) => setNumItems(Number(e.target.value))}
             />
             <br />

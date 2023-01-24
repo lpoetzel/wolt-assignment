@@ -76,7 +76,7 @@ const DeliveryFeeCalculator: React.FC = () => {
                 />
                 <br />
                 <button onClick={calculateFee}>Calculate delivery price</button>
-                <p>Delivery fee: {fee} €</p>
+                <h3>Delivery fee: {fee} €</h3>
             </form >
         </div>
     );

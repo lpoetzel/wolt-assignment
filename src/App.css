@@ -26,10 +26,6 @@ input[type="datetime-local"] {
   margin-bottom: 16px;
 }
 
-input[type="radio"] {
-  margin-right: 8px;
-}
-
 button {
   background-color: rgb(0, 157, 224);
   color: white;

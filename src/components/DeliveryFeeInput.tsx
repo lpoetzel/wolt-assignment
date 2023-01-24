@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Form from './Form';
+import Input from './Input';
 
 const DeliveryFeeCalculator: React.FC = () => {
     const [cartValue, setCartValue] = useState(0);
@@ -41,44 +43,36 @@ const DeliveryFeeCalculator: React.FC = () => {
     };
 
     return (
-        <div className='container'>
-            <form>
-                <label htmlFor="cart-value">Cart value:</label>
-                <input
-                    type="number"
-                    id="cart-value"
-                    placeholder="in €"
-                    onChange={(e) => setCartValue(Number(e.target.value))}
-                />
-                <br />
-                <label htmlFor="distance">Delivery distance:</label>
-                <input
-                    type="number"
-                    id="distance"
-                    placeholder='in meter'
-                    onChange={(e) => setDistance(Number(e.target.value))}
-                />
-                <br />
-                <label htmlFor="num-items">Number of items:</label>
-                <input
-                    type="number"
-                    id="num-items"
-                    placeholder='e.g. 3'
-                    onChange={(e) => setNumItems(Number(e.target.value))}
-                />
-                <br />
-                <label htmlFor="order-time">Order time:</label>
-                <input
-                    type="datetime-local"
-                    id="order-time"
-                    value={orderTime.toISOString().slice(0, -5)}
-                    onChange={(e) => setOrderTime(new Date(e.target.value))}
-                />
-                <br />
-                <button onClick={calculateFee}>Calculate delivery price</button>
-                <h3>Delivery fee: {fee} €</h3>
-            </form >
-        </div>
+        <Form>
+            <Input
+                label="Cart value:"
+                inputType='number'
+                placeholder='in €'
+                onChange={(e) => setCartValue(Number(e.target.value))}
+            />
+            <Input
+                label="Delivery distance:"
+                inputType='number'
+                placeholder='in meter'
+                onChange={(e) => setDistance(Number(e.target.value))}
+            />
+            <Input
+                label="Number of Items:"
+                inputType='number'
+                placeholder='e.g. 3'
+                onChange={(e) => setNumItems(Number(e.target.value))}
+            />
+            <Input
+                label="Order Time:"
+                inputType='datetime-local'
+                placeholder=''
+                value={orderTime.toISOString().slice(0, -5)}
+                onChange={(e) => setOrderTime(new Date(e.target.value))}
+            />
+
+            <button onClick={calculateFee}>Calculate delivery price</button>
+            <h3>Delivery fee: {fee} €</h3>
+        </Form>
     );
 };
 

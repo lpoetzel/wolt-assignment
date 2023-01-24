@@ -1,22 +1,23 @@
 import React from 'react'
+import { INPUT } from './Global.styled'
 
 type Props = {
     label: string,
     inputType: string,
-    inputId: string,
     placeholder: string,
-    onChange: () => void,
+    onChange: React.ChangeEventHandler<HTMLInputElement>;
+    value?: string;
 }
 
-function Input({ label, inputType, inputId, placeholder, onChange }: Props) {
+function Input({ label, inputType, placeholder, onChange, value }: Props) {
     return (
         <>
             <label>{label}</label>
-            <input
+            <INPUT
                 type={inputType}
-                id={inputId}
                 placeholder={placeholder}
                 onChange={onChange}
+                value={value}
             />
         </>
     )

@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from "react";
 import { FORM } from "./Global.styled";
 
 type Props = {
-    children: any;
+    children: React.ReactNode;
 }
 
 const Form: React.FC<PropsWithChildren<Props>> = (props: any) => {

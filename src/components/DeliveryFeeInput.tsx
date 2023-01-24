@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from './Button';
 import Form from './Form';
 import Input from './Input';
 
@@ -70,7 +71,7 @@ const DeliveryFeeCalculator: React.FC = () => {
                 onChange={(e) => setOrderTime(new Date(e.target.value))}
             />
 
-            <button onClick={calculateFee}>Calculate delivery price</button>
+            <Button onClick={calculateFee} buttonText="Calculate delivery price" />
             <h3>Delivery fee: {fee} €</h3>
         </Form>
     );

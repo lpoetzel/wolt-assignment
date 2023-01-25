@@ -5,11 +5,11 @@ export const FORM = styled.form`
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  row-gap: 2em;
+  row-gap: 1em;
 `;
 
 export const INPUT = styled.input`
-  width: 33rem;
+  width: 80%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;

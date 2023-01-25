@@ -40,7 +40,7 @@ const DeliveryFeeCalculator: React.FC = () => {
             fee += surcharge;
         }
         // Friday rush fee
-        if (orderTime.getUTCHours() >= 15 && orderTime.getUTCHours() < 19) {
+        if (orderTime.getUTCDay() === 5 && orderTime.getUTCHours() >= 15 && orderTime.getUTCHours() < 19) {
             fee *= 1.2;
         }
         // Max fee

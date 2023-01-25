@@ -10,7 +10,8 @@ const DeliveryFeeCalculator: React.FC = () => {
     const [orderTime, setOrderTime] = useState(new Date());
     const [fee, setFee] = useState(0);
 
-    const calculateFee = () => {
+    const calculateFee = (e: React.FormEvent<EventTarget>) => {
+        e.preventDefault()
         let fee = 0;
         // Small order surcharge
         if (cartValue < 10) {
@@ -20,7 +21,7 @@ const DeliveryFeeCalculator: React.FC = () => {
         if (distance <= 1000) {
             fee += 2;
         } else {
-            fee += 2 + Math.floor((distance - 1000) / 500);
+            fee += 2 + Math.ceil((distance - 1000) / 500);
         }
         // Number of items fee
         if (numItems >= 5) {
@@ -42,7 +43,6 @@ const DeliveryFeeCalculator: React.FC = () => {
         }
         setFee(Math.round(fee * 100) / 100);
     };
-
     return (
         <Form>
             <Input

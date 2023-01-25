@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { DeliveryFeeContext } from 'src/contexts/DeliveryFee';
 import Button from './Button';
 import Form from './Form';
 import Input from './Input';
 
 const DeliveryFeeCalculator: React.FC = () => {
-    const [cartValue, setCartValue] = useState(0);
-    const [distance, setDistance] = useState(0);
-    const [numItems, setNumItems] = useState(0);
-    const [orderTime, setOrderTime] = useState(new Date());
-    const [fee, setFee] = useState(0);
+    const {
+        cartValue,
+        setCartValue,
+        distance,
+        setDistance,
+        numItems,
+        setNumItems,
+        fee,
+        setFee,
+        orderTime,
+        setOrderTime,
+    } = useContext(DeliveryFeeContext);
 
     const calculateFee = (e: React.FormEvent<EventTarget>) => {
         e.preventDefault()

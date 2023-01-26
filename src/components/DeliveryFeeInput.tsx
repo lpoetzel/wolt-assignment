@@ -4,7 +4,7 @@ import Button from './Button';
 import Form from './Form';
 import Input from './Input';
 
-const DeliveryFeeCalculator: React.FC = () => {
+export const DeliveryFeeCalculator: React.FC = () => {
     const {
         cartValue,
         setCartValue,

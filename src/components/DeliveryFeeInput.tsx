@@ -39,13 +39,13 @@ export const DeliveryFeeCalculator: React.FC = () => {
             }
             fee += surcharge;
         }
-        // Friday rush fee
+        // Friday rush fee between 15 and 19 UTC
         if (orderTime.getUTCDay() === 5 && orderTime.getUTCHours() >= 15 && orderTime.getUTCHours() < 19) {
             fee *= 1.2;
         }
         // Max fee
         fee = Math.min(fee, 15);
-        // Free delivery
+        // Free delivery starting at 100€
         if (cartValue >= 100) {
             fee = 0;
         }

@@ -12,8 +12,9 @@ type Props = {
 function Input({ label, inputType, placeholder, onChange, value }: Props) {
     return (
         <>
-            <label>{label}</label>
+            <label htmlFor={label}>{label}</label>
             <INPUT
+                id={label}
                 type={inputType}
                 placeholder={placeholder}
                 onChange={onChange}

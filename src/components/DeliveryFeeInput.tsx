@@ -80,7 +80,8 @@ export const DeliveryFeeCalculator: React.FC = () => {
             />
 
             <Button onClick={calculateFee} buttonText="Calculate delivery price" />
-            <h3>Delivery fee: {fee} €</h3>
+            <h3 data-testid="fee">Delivery fee: {fee} €</h3>
+
         </Form>
     );
 };

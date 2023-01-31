@@ -1,6 +1,8 @@
 import React from "react";
 import { CiLocationOn, CiShoppingCart, CiMoneyBill } from "react-icons/ci";
-import { DIV, ICON, INPUT } from "./Global.styled";
+import { DIV, } from "../styles/DIV";
+import { INPUT } from "src/styles/INPUT";
+import { ICON } from "src/styles/ICON";
 
 interface Props {
     label: string;

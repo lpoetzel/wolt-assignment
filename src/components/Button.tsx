@@ -1,4 +1,4 @@
-import { BUTTON } from "./Global.styled";
+import { BUTTON } from "../styles/BUTTON";
 import React from 'react'
 
 type Props = {

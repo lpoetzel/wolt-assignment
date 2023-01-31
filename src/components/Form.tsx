@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { FORM } from "./Global.styled";
+import { FORM } from "../styles/FORM";
 
 type Props = {
     children: React.ReactNode;

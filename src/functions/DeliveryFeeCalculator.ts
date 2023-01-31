@@ -1,4 +1,4 @@
-export const calculateFee = (e:React.FormEvent<EventTarget>, cartValue:number, distance:number, numItems:number, orderTime:Date, setFee:React.Dispatch<React.SetStateAction<number>>) => {
+export const calculateFee = (e:any, cartValue:number, distance:number, numItems:number, orderTime:Date, setFee:React.Dispatch<React.SetStateAction<number>>) => {
         e.preventDefault();
         let fee = 0;
         // Small order surcharge

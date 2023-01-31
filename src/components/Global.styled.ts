@@ -9,7 +9,7 @@ export const FORM = styled.form`
 `;
 
 export const INPUT = styled.input`
-  width: 80%;
+  width: 300px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -25,3 +25,15 @@ export const BUTTON = styled.button`
   cursor: pointer;
   margin-top: 16px;
 `;
+export const ICON = styled.i`
+  position: absolute;
+  padding-right: 10px;
+  padding-bottom:13px;
+`;
+export const DIV = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 650px;
+`

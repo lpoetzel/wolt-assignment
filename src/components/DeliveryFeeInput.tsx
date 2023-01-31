@@ -22,21 +22,24 @@ export const DeliveryFeeCalculator: React.FC = () => {
         <Form>
             <Input
                 label="Cart value:"
-                inputType='number'
+                inputType='text'
                 placeholder='in €'
                 onChange={(e) => setCartValue(Number(e.target.value))}
+                icon="cart"
             />
             <Input
                 label="Delivery distance:"
-                inputType='number'
+                inputType='text'
                 placeholder='in meter'
                 onChange={(e) => setDistance(Number(e.target.value))}
+                icon="location"
             />
             <Input
                 label="Number of Items:"
-                inputType='number'
+                inputType='text'
                 placeholder='e.g. 3'
                 onChange={(e) => setNumItems(Number(e.target.value))}
+                icon="items"
             />
             <Input
                 label="Order Time:"

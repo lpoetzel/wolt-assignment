@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { DeliveryFeeContext } from 'src/contexts/DeliveryFee';
-import { calculateFee } from 'src/functions/DeliveryFeeCalculator';
+import { calculateFee } from 'src/functions/calculateFee';
 import Button from './Button';
 import Form from './Form';
 import Input from './Input';

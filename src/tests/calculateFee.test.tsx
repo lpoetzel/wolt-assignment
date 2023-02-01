@@ -1,4 +1,4 @@
-import { calculateFee } from "./functions/DeliveryFeeCalculator";
+import { calculateFee } from "../functions/calculateFee";
 
 describe("calculateFee", () => {
     it("should calculate the correct fee including friday rush fee", () => {

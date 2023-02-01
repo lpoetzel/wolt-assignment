@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-// import DeliveryFeeCalculator from './components/DeliveryFeeInput'
 import '@testing-library/jest-dom/extend-expect'
 import App from '../App'
 

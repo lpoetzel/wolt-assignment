@@ -44,8 +44,8 @@ export const DeliveryFeeCalculator: React.FC = () => {
             <Input
                 label="Order Time:"
                 inputType='datetime-local'
-                placeholder=''
                 value={orderTime.toISOString().slice(0, -5)}
+                min={new Date().toISOString().slice(0, -5)}
                 onChange={(e) => setOrderTime(new Date(e.target.value))}
             />
 

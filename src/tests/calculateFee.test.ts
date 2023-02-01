@@ -6,7 +6,7 @@ describe("calculateFee", () => {
         const cartValue = 30;
         const distance = 2000;
         const numItems = 10;
-        const orderTime = new Date("2023-01-27T15:00:00.000Z");
+        const orderTime = new Date("2023-02-24T15:00:00.000Z");
         const setFee = jest.fn();
 
         calculateFee(e, cartValue, distance, numItems, orderTime, setFee);
@@ -20,7 +20,7 @@ describe("calculateFee", () => {
         const cartValue = 0;
         const distance = 10000;
         const numItems = 20;
-        const orderTime = new Date("2023-01-27T15:00:00.000Z");
+        const orderTime = new Date("2023-03-27T15:00:00.000Z");
         const setFee = jest.fn();
 
         calculateFee(e, cartValue, distance, numItems, orderTime, setFee);
@@ -34,7 +34,7 @@ describe("calculateFee", () => {
         const cartValue = 100;
         const distance = 2000;
         const numItems = 10;
-        const orderTime = new Date("2023-01-27T15:00:00.000Z");
+        const orderTime = new Date("2023-02-27T15:00:00.000Z");
         const setFee = jest.fn();
 
         calculateFee(e, cartValue, distance, numItems, orderTime, setFee);

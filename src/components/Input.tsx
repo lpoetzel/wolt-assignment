@@ -7,15 +7,16 @@ import { ICON } from "src/styles/ICON";
 interface Props {
     label: string;
     inputType: string;
-    placeholder: string;
+    placeholder?: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     value?: string;
     icon?: string;
+    min?: string;
 }
 
 
 
-function Input({ label, inputType, placeholder, onChange, value, icon }: Props) {
+function Input({ label, inputType, placeholder, onChange, value, icon, min }: Props) {
     let Icon;
     if (icon === "location") {
         Icon = CiLocationOn;
@@ -37,6 +38,7 @@ function Input({ label, inputType, placeholder, onChange, value, icon }: Props) 
                     placeholder={placeholder}
                     onChange={onChange}
                     value={value}
+                    min={min}
                 />
                 {Icon && <ICON><Icon /></ICON>}
             </DIV>

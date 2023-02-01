@@ -4,7 +4,7 @@ import { DeliveryFeeContextProvider } from './contexts/DeliveryFee';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <DeliveryFeeContextProvider>
         <DeliveryFeeInput />
       </DeliveryFeeContextProvider>

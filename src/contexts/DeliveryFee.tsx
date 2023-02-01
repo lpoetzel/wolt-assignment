@@ -30,7 +30,7 @@ interface Props {
   children: React.ReactNode
 }
 
-export const DeliveryFeeContextProvider: React.FC<Props> = ({ children }) => {
+export const DeliveryFeeContextProvider: React.FC<Props> = ({ children }): JSX.Element => {
   const [cartValue, setCartValue] = useState(0);
   const [distance, setDistance] = useState(0);
   const [numItems, setNumItems] = useState(0);

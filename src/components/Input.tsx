@@ -16,7 +16,7 @@ interface Props {
 
 
 
-function Input({ label, inputType, placeholder, onChange, value, icon, min }: Props) {
+function Input({ label, inputType, placeholder, onChange, value, icon, min }: Props): JSX.Element {
     let Icon;
     if (icon === "location") {
         Icon = CiLocationOn;

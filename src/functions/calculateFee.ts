@@ -1,4 +1,4 @@
-export const calculateFee = (e:any, cartValue:number, distance:number, numItems:number, orderTime:Date, setFee:React.Dispatch<React.SetStateAction<number>>) => {
+export const calculateFee = (e:any, cartValue:number, distance:number, numItems:number, orderTime:Date, setFee:React.Dispatch<React.SetStateAction<number>>):void => {
         e.preventDefault();
         let fee = 0;
         // Small order surcharge

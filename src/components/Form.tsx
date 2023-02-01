@@ -5,7 +5,7 @@ type Props = {
     children: React.ReactNode;
 }
 
-const Form: React.FC<PropsWithChildren<Props>> = (props: any) => {
+const Form: React.FC<PropsWithChildren<Props>> = (props): JSX.Element => {
     const { children } = props;
     return <FORM > {children} </FORM>;
 };

@@ -6,7 +6,7 @@ type Props = {
     onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button = ({ buttonText, onClick }: Props) => {
+const Button = ({ buttonText, onClick }: Props): JSX.Element => {
     return (
         <BUTTON onClick={onClick}>{buttonText}</BUTTON>
     )

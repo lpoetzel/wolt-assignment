@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { DeliveryFeeContext } from 'src/contexts/DeliveryFee';
-import { calculateFee } from 'src/functions/DeliveryFeeCalculator';
+import { calculateFee } from '../functions/DeliveryFeeCalculator';
 import Button from './Button';
 import Form from './Form';
 import Input from './Input';
+import { DeliveryFeeContext } from '../contexts/DeliveryFee';
 
 export const DeliveryFeeCalculator: React.FC = () => {
     const {
@@ -47,7 +47,7 @@ export const DeliveryFeeCalculator: React.FC = () => {
             />
 
             <Button onClick={(e) => calculateFee(e, cartValue, distance, numItems, orderTime, setFee)} buttonText="Calculate delivery price" />
-            <h3>Delivery fee: {fee} €</h3>
+            <h3 data-testid="fee">Delivery fee: {fee} €</h3>
         </Form>
     );
 };

@@ -13,8 +13,8 @@ describe('DeliveryFeeCalculator', () => {
             screen.getByLabelText('Delivery distance:')
         const numItemsInput: HTMLInputElement =
             screen.getByLabelText('Number of Items:')
-        // const orderTimeInput: HTMLInputElement =
-        //     screen.getByLabelText('Order Time:')
+        const orderTimeInput: HTMLInputElement =
+            screen.getByLabelText('Order Time:')
         const calculateButton: HTMLButtonElement = screen.getByText(
             'Calculate delivery price'
         )
@@ -27,7 +27,7 @@ describe('DeliveryFeeCalculator', () => {
         fireEvent.change(cartValueInput, { target: { value: '12' } })
         fireEvent.change(distanceInput, { target: { value: '2000' } })
         fireEvent.change(numItemsInput, { target: { value: '6' } })
-        // fireEvent.change(orderTimeInput, { target: { value: new Date() } })
+        fireEvent.change(orderTimeInput, { target: { value: new Date() } })
 
         // Click the button to calculate the fee
         fireEvent.click(calculateButton)

@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
-import { calculateFee } from '../functions/DeliveryFeeCalculator'
-import Button from './Button'
-import Form from './Form'
-import Input from './Input'
-import { DeliveryFeeContext } from '../contexts/DeliveryFee'
+import React, { useContext } from 'react';
+import { DeliveryFeeContext } from '../contexts/DeliveryFee';
+import { calculateFee } from '../functions/calculateFee';
+import Button from './Button';
+import Form from './Form';
+import Input from './Input';
 
-export const DeliveryFeeCalculator: React.FC = () => {
+export const DeliveryFeeCalculator: React.FC = (): JSX.Element => {
     const {
         cartValue,
         setCartValue,
@@ -21,29 +21,32 @@ export const DeliveryFeeCalculator: React.FC = () => {
     return (
         <Form>
             <Input
-                label='Cart value:'
-                inputType='number'
+                label="Cart value:"
+                inputType='text'
                 placeholder='in €'
-                onChange={e => setCartValue(Number(e.target.value))}
+                onChange={(e) => setCartValue(Number(e.target.value))}
+                icon="cart"
             />
             <Input
-                label='Delivery distance:'
-                inputType='number'
+                label="Delivery distance:"
+                inputType='text'
                 placeholder='in meter'
-                onChange={e => setDistance(Number(e.target.value))}
+                onChange={(e) => setDistance(Number(e.target.value))}
+                icon="location"
             />
             <Input
-                label='Number of Items:'
-                inputType='number'
+                label="Number of Items:"
+                inputType='text'
                 placeholder='e.g. 3'
-                onChange={e => setNumItems(Number(e.target.value))}
+                onChange={(e) => setNumItems(Number(e.target.value))}
+                icon="items"
             />
             <Input
                 label='Order Time:'
                 inputType='datetime-local'
-                placeholder=''
                 value={orderTime.toISOString().slice(0, -5)}
-                onChange={e => setOrderTime(new Date(e.target.value))}
+                min={new Date().toISOString().slice(0, -5)}
+                onChange={(e) => setOrderTime(new Date(e.target.value))}
             />
 
             <Button

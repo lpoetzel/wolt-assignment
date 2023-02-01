@@ -1,11 +1,4 @@
-export const calculateFee = (
-    e: React.FormEvent<EventTarget>,
-    cartValue: number,
-    distance: number,
-    numItems: number,
-    orderTime: Date,
-    setFee: React.Dispatch<React.SetStateAction<number>>
-) => {
+export const calculateFee = (e:any, cartValue:number, distance:number, numItems:number, orderTime:Date, setFee:React.Dispatch<React.SetStateAction<number>>):void => {
     e.preventDefault()
     let fee = 0
     // Small order surcharge
@@ -23,6 +16,12 @@ export const calculateFee = (
         let surcharge = (numItems - 4) * 0.5
         if (numItems > 12) {
             surcharge += 1.2
+
+        e.preventDefault();
+        let fee = 0;
+        // Small order surcharge
+        if (cartValue < 10) {
+            fee += 10 - cartValue;
         }
         fee += surcharge
     }
@@ -41,4 +40,5 @@ export const calculateFee = (
         fee = 0
     }
     setFee(Math.round(fee * 100) / 100)
+}
 }

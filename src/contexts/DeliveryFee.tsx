@@ -15,27 +15,27 @@ interface ContextProps {
 
 export const DeliveryFeeContext = createContext<ContextProps>({
     cartValue: 0,
-    setCartValue: () => {},
+    setCartValue: () => { },
     distance: 0,
-    setDistance: () => {},
+    setDistance: () => { },
     numItems: 0,
-    setNumItems: () => {},
+    setNumItems: () => { },
     fee: 0,
-    setFee: () => {},
+    setFee: () => { },
     orderTime: new Date(),
-    setOrderTime: () => {},
+    setOrderTime: () => { },
 })
 
 interface Props {
     children: React.ReactNode
 }
 
-export const DeliveryFeeContextProvider: React.FC<Props> = ({ children }) => {
-    const [cartValue, setCartValue] = useState(0)
-    const [distance, setDistance] = useState(0)
-    const [numItems, setNumItems] = useState(0)
-    const [orderTime, setOrderTime] = useState(new Date())
-    const [fee, setFee] = useState(0)
+export const DeliveryFeeContextProvider: React.FC<Props> = ({ children }): JSX.Element => {
+    const [cartValue, setCartValue] = useState(0);
+    const [distance, setDistance] = useState(0);
+    const [numItems, setNumItems] = useState(0);
+    const [orderTime, setOrderTime] = useState(new Date());
+    const [fee, setFee] = useState(0);
 
     return (
         <DeliveryFeeContext.Provider

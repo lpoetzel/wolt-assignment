@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 // import DeliveryFeeCalculator from './components/DeliveryFeeInput'
 import '@testing-library/jest-dom/extend-expect'
-import App from './App'
+import App from '../App'
 
 describe('DeliveryFeeCalculator', () => {
     it('calculates the delivery fee', () => {
@@ -27,7 +27,7 @@ describe('DeliveryFeeCalculator', () => {
         fireEvent.change(cartValueInput, { target: { value: '12' } })
         fireEvent.change(distanceInput, { target: { value: '2000' } })
         fireEvent.change(numItemsInput, { target: { value: '6' } })
-        fireEvent.change(orderTimeInput, { target: { value: new Date() } })
+        fireEvent.change(orderTimeInput, { target: { value: new Date().toISOString().slice(0, -5) } })
 
         // Click the button to calculate the fee
         fireEvent.click(calculateButton)

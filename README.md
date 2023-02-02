@@ -10,7 +10,7 @@ run the following command:
 
 Run Test
 
-'npm run test' to let jest run a test of the calculateFee function
+'npm run test' to let jest run a few tests for the calculateFee function and one for the component
 
 Dependencies
 

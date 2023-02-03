@@ -10,7 +10,7 @@ run the following command:
 
 Run Test
 
-'npm run test' to let jest run a few tests for the calculateFee function and one for the component
+'npm run test' to let jest run a few tests for the calculateFee function including edge cases and one for the component
 
 Dependencies
 
@@ -26,8 +26,7 @@ Dependencies
     "react-icons": "^4.7.1",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
-    "typescript": "^4.9.4",
-    "web-vitals": "^2.1.4"
+    "typescript": "^4.9.4"
   },
 
 tested on Firefox Version 108.0.2 (64-bit) for Ubuntu 22.04.1 LTS with VScode 1.74.3

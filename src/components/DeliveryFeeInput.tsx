@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { DeliveryFeeContext } from '../contexts/DeliveryFee';
 import { calculateFee } from '../functions/calculateFee';
 import Button from './Button';
 import Form from './Form';
 import Input from './Input';
 
-export const DeliveryFeeCalculator: React.FC = (): JSX.Element => {
+export const DeliveryFeeInput: React.FC = (): JSX.Element => {
     const {
         cartValue,
         setCartValue,
@@ -18,6 +18,26 @@ export const DeliveryFeeCalculator: React.FC = (): JSX.Element => {
         orderTime,
         setOrderTime,
     } = useContext(DeliveryFeeContext);
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        setErrorMessage('');
+        e.preventDefault();
+        if (cartValue < 1 || distance < 1 || numItems < 1 || isNaN(cartValue) || isNaN(distance) || isNaN(numItems)) {
+            setErrorMessage('Please enter valid input');
+            return;
+        }
+
+        calculateFee(
+            e,
+            cartValue,
+            distance,
+            numItems,
+            orderTime,
+            setFee
+        );
+    };
+
     return (
         <Form>
             <Input
@@ -25,7 +45,7 @@ export const DeliveryFeeCalculator: React.FC = (): JSX.Element => {
                 inputType='text'
                 placeholder='in €'
                 onChange={(e) => setCartValue(Number(e.target.value))}
-                icon="cart"
+                icon="money"
             />
             <Input
                 label="Delivery distance:"
@@ -42,17 +62,18 @@ export const DeliveryFeeCalculator: React.FC = (): JSX.Element => {
                 icon="items"
             />
             <Input
-                label="Order Time:"
+                label='Order Time:'
                 inputType='datetime-local'
                 value={orderTime.toISOString().slice(0, -5)}
                 min={new Date().toISOString().slice(0, -5)}
                 onChange={(e) => setOrderTime(new Date(e.target.value))}
             />
-
-            <Button onClick={(e) => calculateFee(e, cartValue, distance, numItems, orderTime, setFee)} buttonText="Calculate delivery price" />
-            <h3>Delivery fee: {fee} €</h3>
+            <Button
+                onClick={handleClick}
+                buttonText='Calculate delivery price'
+            />
+            {errorMessage ? <span style={{ color: 'red' }}>{errorMessage}</span> : null}
+            <h3 data-testid='fee'>Delivery fee: {fee} €</h3>
         </Form>
     );
 };
-
-export default DeliveryFeeCalculator;

@@ -29,5 +29,8 @@ export const calculateFee = (e:any, cartValue:number, distance:number, numItems:
         if (cartValue >= 100) {
             fee = 0;
         }
+        if(cartValue ===0 || numItems === 0 || distance ===0)  {
+            fee = 0 ;
+        }
         setFee(Math.round(fee * 100) / 100);
     };

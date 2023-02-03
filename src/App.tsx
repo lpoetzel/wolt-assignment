@@ -1,10 +1,10 @@
 import './styles/App.css';
-import DeliveryFeeInput from './components/DeliveryFeeInput';
+import { DeliveryFeeInput } from './components/DeliveryFeeInput';
 import { DeliveryFeeContextProvider } from './contexts/DeliveryFee';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <DeliveryFeeContextProvider>
         <DeliveryFeeInput />
       </DeliveryFeeContextProvider>

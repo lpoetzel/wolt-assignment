@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "build/dist",
+    "outDir": "./",
+    "noEmit": true,
     "module": "esnext",
     "target": "es5",
     "lib": ["es6", "dom"],
@@ -9,8 +10,9 @@
     "allowJs": true,
     "jsx": "react-jsx",
     "moduleResolution": "node",
-    "rootDir": "src",
+    "rootDir": "./",
     "forceConsistentCasingInFileNames": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
@@ -28,5 +30,8 @@
     "acceptance-tests",
     "webpack",
     "jest",
+    "src/setupTests.ts",
+    "dist",
+    "types"
   ]
 }

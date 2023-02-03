@@ -17,7 +17,7 @@ describe("calculateFee", () => {
 
     it("should apply the max fee of 15", () => {
         const e = { preventDefault: jest.fn() };
-        const cartValue = 0;
+        const cartValue = 50;
         const distance = 10000;
         const numItems = 20;
         const orderTime = new Date("2023-03-27T15:00:00.000Z");

@@ -1,5 +1,5 @@
 import React from "react";
-import { CiLocationOn, CiShoppingCart, CiMoneyBill } from "react-icons/ci";
+import { ShoppingCart, Navigation, DollarSign } from "react-feather";
 import { DIV } from "../styles/DIV";
 import { INPUT } from "../styles/INPUT";
 import { ICON } from "../styles/ICON";
@@ -19,12 +19,12 @@ interface Props {
 function Input({ label, inputType, placeholder, onChange, value, icon, min }: Props): JSX.Element {
     let Icon;
     if (icon === "location") {
-        Icon = CiLocationOn;
-    } else if (icon === "cart") {
-        Icon = CiMoneyBill
+        Icon = Navigation;
+    } else if (icon === "money") {
+        Icon = DollarSign
 
     } else if (icon === "items") {
-        Icon = CiShoppingCart
+        Icon = ShoppingCart
     }
 
     return (
@@ -40,7 +40,7 @@ function Input({ label, inputType, placeholder, onChange, value, icon, min }: Pr
                     value={value}
                     min={min}
                 />
-                {Icon && <ICON><Icon /></ICON>}
+                {Icon && <ICON><Icon size={15} /></ICON>}
             </DIV>
         </>
     );

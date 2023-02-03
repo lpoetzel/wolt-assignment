@@ -12,6 +12,7 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
         distance: false,
         numItems: false,
     });
+    //import states from context
     const {
         cartValue,
         setCartValue,
@@ -25,20 +26,20 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
         setOrderTime,
     } = useContext(DeliveryFeeContext);
 
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         setErrorMessage('');
         e.preventDefault();
-
+        //throw new Error when input field is empty on submit
         if (!cartValue && !distance && !numItems) {
             setErrorMessage('Please enter values for all fields');
         } else {
             if (!cartValue) {
                 setInputError(({ ...inputError, cartValue: true }))
-                setErrorMessage('Please insert cart values');
+                setErrorMessage('Please insert a cart value number');
             }
             if (!distance) {
                 setInputError(({ ...inputError, distance: true }))
-                setErrorMessage('Please insert a delivery distance');
+                setErrorMessage('Please insert a delivery distance number');
             }
             if (!numItems) {
                 setInputError(({ ...inputError, numItems: true }))
@@ -56,15 +57,15 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
     };
 
 
-    const handleChange = (field: string, value: string | number) => {
+    const handleInputChange = (field: string, value: string | number) => {
         setErrorMessage("");
         setInputError({ ...inputError, [field]: false });
-
+        //throw new Error when the input is invalid and set the state to the input if its valid
         switch (field) {
             case "cartValue":
                 if (!value) {
                     setInputError({ ...inputError, cartValue: true });
-                    setErrorMessage("Please insert cart values");
+                    setErrorMessage("Please insert cart value number");
                     break;
                 }
                 setCartValue(Number(value));
@@ -72,7 +73,7 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
             case "distance":
                 if (!value) {
                     setInputError({ ...inputError, distance: true });
-                    setErrorMessage("Please insert a delivery distance");
+                    setErrorMessage("Please insert a delivery distance number");
                     break;
                 }
                 setDistance(Number(value));
@@ -96,7 +97,7 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 label="Cart value:"
                 inputType="number"
                 placeholder="in €"
-                onChange={(e) => handleChange("cartValue", e.target.value)}
+                onChange={(e) => handleInputChange("cartValue", e.target.value)}
                 icon="money"
                 borderColor={
                     inputError.cartValue ? "red" : cartValue ? "green" : "black"
@@ -106,7 +107,7 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 label="Delivery distance:"
                 inputType="number"
                 placeholder="in meter"
-                onChange={(e) => handleChange("distance", e.target.value)}
+                onChange={(e) => handleInputChange("distance", e.target.value)}
                 icon="location"
                 borderColor={inputError.distance ? "red" : distance ? "green" : "black"}
             />
@@ -114,7 +115,7 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 label="Number of Items:"
                 inputType="number"
                 placeholder="e.g. 3"
-                onChange={(e) => handleChange("numItems", e.target.value)}
+                onChange={(e) => handleInputChange("numItems", e.target.value)}
                 icon="items"
                 borderColor={inputError.numItems ? "red" : numItems ? "green" : "black"}
             />
@@ -127,7 +128,7 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 onChange={(e) => setOrderTime(new Date(e.target.value))}
                 borderColor="inherit"
             />
-            <Button onClick={handleClick} buttonText="Calculate delivery price" />
+            <Button onClick={handleButtonClick} buttonText="Calculate delivery price" />
             {errorMessage ? (
                 <span style={{ color: "red" }}>{errorMessage}</span>
             ) : null}

@@ -20,7 +20,7 @@ function Input({ label, inputType, placeholder, onChange, value, icon, min }: Pr
     let Icon;
     if (icon === "location") {
         Icon = Navigation;
-    } else if (icon === "cart") {
+    } else if (icon === "money") {
         Icon = DollarSign
 
     } else if (icon === "items") {

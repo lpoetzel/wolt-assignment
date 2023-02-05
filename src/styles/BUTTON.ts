@@ -8,4 +8,12 @@ export const BUTTON = styled.button`
   border-radius: 4px;
   cursor: pointer;
   margin-top: 16px;
+
+  &:hover {
+    background-color: rgb(0, 137, 204);
+  }
+
+  &:active {
+    background-color: rgb(0, 117, 184);
+  }
 `;

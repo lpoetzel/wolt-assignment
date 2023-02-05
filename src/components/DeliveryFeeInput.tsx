@@ -103,6 +103,8 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 borderColor={
                     inputError.cartValue ? "red" : cartValue ? "green" : "black"
                 }
+                min="0"
+                step="0,01"
             />
             <Input
                 label="Delivery distance:"
@@ -111,6 +113,9 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 onChange={(e) => handleInputChange("distance", e.target.value)}
                 icon="location"
                 borderColor={inputError.distance ? "red" : distance ? "green" : "black"}
+                min="0"
+                step="1"
+
             />
             <Input
                 label="Number of Items:"
@@ -119,6 +124,8 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 onChange={(e) => handleInputChange("numItems", e.target.value)}
                 icon="items"
                 borderColor={inputError.numItems ? "red" : numItems ? "green" : "black"}
+                min="0"
+                step="1"
             />
 
             <Input

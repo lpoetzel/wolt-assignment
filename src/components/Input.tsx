@@ -13,11 +13,12 @@ interface Props {
     icon?: string;
     min?: string;
     borderColor: string;
+    step?: string
 }
 
 
 
-function Input({ label, inputType, placeholder, onChange, value, icon, min, borderColor }: Props): JSX.Element {
+function Input({ label, inputType, placeholder, onChange, value, icon, min, borderColor, step }: Props): JSX.Element {
     let Icon;
     if (icon === "location") {
         Icon = Navigation;
@@ -41,6 +42,7 @@ function Input({ label, inputType, placeholder, onChange, value, icon, min, bord
                     value={value}
                     min={min}
                     borderColor={borderColor}
+                    step={step}
                 />
                 {Icon && <ICON><Icon size={15} /></ICON>}
             </DIV>

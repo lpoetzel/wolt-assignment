@@ -6,6 +6,7 @@ import Form from "./Form";
 import Input from "./Input";
 
 export const DeliveryFeeInput: React.FC = (): JSX.Element => {
+    const [feeVisible, setFeeVisible] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [inputError, setInputError] = useState({
         cartValue: false,
@@ -26,37 +27,20 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
         setOrderTime,
     } = useContext(DeliveryFeeContext);
 
+    const isButtonDisabled = cartValue === 0 || distance === 0 || numItems === 0;
+
     const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        setErrorMessage('');
         e.preventDefault();
-        //throw new Error when input field is empty on submit
-        if (!cartValue && !distance && !numItems) {
-            setErrorMessage('Please enter values for all fields');
-        } else {
-            if (!cartValue) {
-                setInputError(({ ...inputError, cartValue: true }))
-                setErrorMessage('Please insert a cart value number');
-            }
-            if (!distance) {
-                setInputError(({ ...inputError, distance: true }))
-                setErrorMessage('Please insert a delivery distance number');
-            }
-            if (!numItems) {
-                setInputError(({ ...inputError, numItems: true }))
-                setErrorMessage('Please insert a number of items');
-            }
-            calculateFee(
-                e,
-                cartValue,
-                distance,
-                numItems,
-                orderTime,
-                setFee
-            );
-        }
-    };
-
-
+        calculateFee(
+            e,
+            cartValue,
+            distance,
+            numItems,
+            orderTime,
+            setFee
+        );
+        setFeeVisible(true)
+    }
     const handleInputChange = (field: string, value: string | number) => {
         setErrorMessage("");
         setInputError({ ...inputError, [field]: false });
@@ -90,7 +74,7 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 break;
         }
     };
-    const isButtonDisabled = cartValue === 0 || distance === 0 || numItems === 0;
+
 
     return (
         <Form>
@@ -140,10 +124,10 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 opacity={isButtonDisabled ? "0.5" : "1"}
                 pointer={isButtonDisabled ? "none" : "auto"}
             />
-            {errorMessage ? (
-                <span style={{ color: "red" }}>{errorMessage}</span>
-            ) : null}
-            <h3 data-testid="fee">Delivery fee: {fee} €</h3>
+            {errorMessage && (
+                <span data-testid="error" style={{ color: "red" }}>{errorMessage}</span>
+            )}
+            {feeVisible && <h3 data-testid="fee">Delivery fee: {fee > 0 ? fee + "€" : "free"} </h3>}
         </Form>
     );
 };

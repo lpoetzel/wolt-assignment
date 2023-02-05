@@ -16,6 +16,7 @@ const rushFeeMultiplier = 1.2;
 
 const maxFee = 15;
 const freeDelivery = 100;
+
 export const calculateFee = (
   e: any,
   cartValue: number,

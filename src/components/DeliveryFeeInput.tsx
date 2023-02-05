@@ -27,6 +27,7 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
         setOrderTime,
     } = useContext(DeliveryFeeContext);
 
+    //disable button when there are no values
     const isButtonDisabled = cartValue === 0 || distance === 0 || numItems === 0;
 
     const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface Props {
-  borderColor: any;
+  borderColor: string;
 }
 
 export const INPUT = styled.input<Props>`

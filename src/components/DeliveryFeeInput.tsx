@@ -90,6 +90,7 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 break;
         }
     };
+    const isButtonDisabled = cartValue === 0 || distance === 0 || numItems === 0;
 
     return (
         <Form>
@@ -128,7 +129,10 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 onChange={(e) => setOrderTime(new Date(e.target.value))}
                 borderColor="inherit"
             />
-            <Button onClick={handleButtonClick} buttonText="Calculate delivery price" />
+            <Button onClick={handleButtonClick} buttonText="Calculate delivery price"
+                opacity={isButtonDisabled ? "0.5" : "1"}
+                pointer={isButtonDisabled ? "none" : "auto"}
+            />
             {errorMessage ? (
                 <span style={{ color: "red" }}>{errorMessage}</span>
             ) : null}

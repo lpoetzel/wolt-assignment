@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 
-interface ContextProps {
+type ContextProps = {
     cartValue: number
     setCartValue: React.Dispatch<React.SetStateAction<number>>
     distance: number
@@ -26,7 +26,7 @@ export const DeliveryFeeContext = createContext<ContextProps>({
     setOrderTime: () => { },
 })
 
-interface Props {
+type Props = {
     children: React.ReactNode
 }
 

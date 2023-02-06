@@ -4,7 +4,7 @@ import { DIV } from "../styles/DIV";
 import { INPUT } from "../styles/INPUT";
 import { ICON } from "../styles/ICON";
 
-interface Props {
+type Props = {
     label: string;
     inputType: string;
     placeholder?: string;

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-interface Props {
+type Props = {
   opacity: string;
   pointer: string;
-}
+};
 
 export const BUTTON = styled.button<Props>`
   background-color: rgb(0, 157, 224);

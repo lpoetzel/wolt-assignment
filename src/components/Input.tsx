@@ -13,25 +13,31 @@ type Props = {
     icon?: string;
     min?: string;
     borderColor: string;
-    step?: string
-}
+    step?: string;
+};
 
-
-
-function Input({ label, inputType, placeholder, onChange, value, icon, min, borderColor, step }: Props): JSX.Element {
+function Input({
+    label,
+    inputType,
+    placeholder,
+    onChange,
+    value,
+    icon,
+    min,
+    borderColor,
+    step,
+}: Props): JSX.Element {
     let Icon;
     if (icon === "location") {
         Icon = Navigation;
     } else if (icon === "money") {
-        Icon = DollarSign
-
+        Icon = DollarSign;
     } else if (icon === "items") {
-        Icon = ShoppingCart
+        Icon = ShoppingCart;
     }
 
     return (
         <>
-
             <label htmlFor={label}>{label}</label>
             <DIV>
                 <INPUT
@@ -43,8 +49,13 @@ function Input({ label, inputType, placeholder, onChange, value, icon, min, bord
                     min={min}
                     borderColor={borderColor}
                     step={step}
+                    required
                 />
-                {Icon && <ICON><Icon size={15} /></ICON>}
+                {Icon && (
+                    <ICON>
+                        <Icon size={15} />
+                    </ICON>
+                )}
             </DIV>
         </>
     );

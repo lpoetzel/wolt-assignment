@@ -6,7 +6,6 @@ import Form from "./Form";
 import Input from "./Input";
 
 export const DeliveryFeeInput: React.FC = (): JSX.Element => {
-    const [feeVisible, setFeeVisible] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [inputError, setInputError] = useState({
         cartValue: false,
@@ -40,7 +39,6 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
             orderTime,
             setFee
         );
-        setFeeVisible(true)
     }
     const handleInputChange = (field: string, value: string | number) => {
         setErrorMessage("");
@@ -121,14 +119,15 @@ export const DeliveryFeeInput: React.FC = (): JSX.Element => {
                 onChange={(e) => setOrderTime(new Date(e.target.value))}
                 borderColor="inherit"
             />
-            <Button onClick={handleButtonClick} buttonText="Calculate delivery price"
+            <Button onClick={(e) => handleButtonClick(e)} buttonText="Calculate delivery price"
                 opacity={isButtonDisabled ? "0.5" : "1"}
                 pointer={isButtonDisabled ? "none" : "auto"}
             />
             {errorMessage && (
                 <span data-testid="error" style={{ color: "red" }}>{errorMessage}</span>
             )}
-            {feeVisible && <h3 data-testid="fee">Delivery fee: {fee > 0 ? fee + "€" : "free"} </h3>}
+
+            <h3 data-testid="fee">Delivery fee: {fee} € </h3>
         </Form>
     );
 };

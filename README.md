@@ -64,6 +64,21 @@ This project was tested on Firefox Version 108.0.2 (64-bit) for Ubuntu 22.04.1 L
 
 ### Limitations 
 
+ - Since UTC was specified for the calculation of the Friday rush fee, i decided to use it in the whole app.
+ - The inputs are not limited at the top because i decided against setting random limitations. In a real Product these values would come from the client.
 
 ### Improvements 
 
+this section contains ideas that didnt make it into the final version:
+
+ - Display the Delivery fee only once the Button has been clicked.
+    - has been dropped since it caused problems with the tests.
+
+
+ - Use of better Icons.
+  
+    - i used react-icons before but they caused a permanent warning message during the tests and in the console, so i had to drop it. This unfortunately leeds to a Dollar symbol instead of an euro symbol in the cart Value because the new Icon library didnt have a fitting icon.
+    - 
+
+ - More tests.
+   - more tests are a always good.
